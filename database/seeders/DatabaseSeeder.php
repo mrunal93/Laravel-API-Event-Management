@@ -1,5 +1,8 @@
 <?php
 
+
+//  To create database----------------php artisan migrate:refresh --seed
+
 namespace Database\Seeders;
 
 use App\Models\User;
@@ -13,11 +16,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory(1000)->create();
 
-        User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
-        ]);
+        $this->call(EventSeeder::class);
+        $this->call(AttendeeSeeder::class);
     }
 }
