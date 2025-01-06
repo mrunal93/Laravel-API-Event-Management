@@ -29,13 +29,13 @@ class AppServiceProvider extends ServiceProvider
             return Limit::perMinute(60)->by($request->user()?->id ?: $request->ip());
         });
 
-        Gate::define('update', function ($user,Event $event) {
-            return $user->id === $event->user_id;
-        });
+        // Gate::define('update', function ($user,Event $event) {
+        //     return $user->id === $event->user_id;
+        // });
 
-        Gate::define('delete', function ($user,Event $event,Attendee $attendee) {
-            return $user->id === $event->user_id || $user->id === $attendee->user_id;
-        });
+        // Gate::define('delete', function ($user,Event $event,Attendee $attendee) {
+        //     return $user->id === $event->user_id || $user->id === $attendee->user_id;
+        // });
 
     }
 }
